@@ -102,6 +102,12 @@ module RubyWarrior
           prepare_epic_mode
           UI.puts "Run rubywarrior again to play epic mode."
         end
+      elsif Config.skip_input?
+        if next_level.exists?
+          prepare_next_level
+        else
+          prepare_epic_mode
+        end
       else
         UI.puts "Staying on current level. Try to earn more points next time."
       end
